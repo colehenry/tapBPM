@@ -42,18 +42,18 @@ public class MainActivity extends AppCompatActivity {
 
         bpms = new ArrayList<>();
         long unixTime = System.currentTimeMillis();
-        long sum = 0;
-        long average = 0;
+        double sum = 0;
+        double average = 0;
         Log.d("tapButton Clicked","Current time: " + unixTime);
         timeStamps.add(unixTime);
         if(timeStamps.size()>=2 ) //calculate the BPM
         {
             for(int i = 0; i<timeStamps.size()-1;i++)
             {
-                long difference = timeStamps.get(i+1)-timeStamps.get(i);
+                double difference = timeStamps.get(i+1)-timeStamps.get(i);
 
-                bpms.add(60/(difference/1000));
-                sum += bpms.get(i);
+                sum += 60/(difference/1000);
+
 
             }
             average = sum/timeStamps.size()-1;
